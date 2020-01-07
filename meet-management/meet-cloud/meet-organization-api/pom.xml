@@ -3,20 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.fh</groupId>
+        <artifactId>meet-cloud</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.fh</groupId>
     <artifactId>meet-organization-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>meet-organization-api</name>
     <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -34,6 +29,12 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fh</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
