@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/meet-cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-plan-agenda-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-agenda-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-regular/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-regular-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-draft-notice-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-summary-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-supervise-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-room-reserve-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-query-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-organization-api/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/commons/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://mybatis.org/dtd/mybatis-3-config.dtd" location="$PROJECT_DIR$/../../../111/mybatis-3-config.dtd" />
+    <resource url="http://mybatis.org/dtd/mybatis-3-mapper.dtd" location="$PROJECT_DIR$/../../../111/mybatis-3-mapper.dtd" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

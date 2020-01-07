@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="commons" />
+        <module name="meet-agenda-api" />
+        <module name="meet-cloud" />
+        <module name="meet-draft-notice-api" />
+        <module name="meet-organization-api" />
+        <module name="meet-plan-agenda-api" />
+        <module name="meet-query-api" />
+        <module name="meet-regular-api" />
+        <module name="meet-room-reserve-api" />
+        <module name="meet-summary-api" />
+        <module name="meet-supervise-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="commons" target="1.7" />
+      <module name="meet-agenda-api" target="1.7" />
+      <module name="meet-cloud" target="1.7" />
+      <module name="meet-draft-notice-api" target="1.7" />
+      <module name="meet-organization-api" target="1.7" />
+      <module name="meet-plan-agenda-api" target="1.7" />
+      <module name="meet-query-api" target="1.7" />
+      <module name="meet-regular" target="1.7" />
+      <module name="meet-regular-api" target="1.7" />
+      <module name="meet-room-reserve-api" target="1.7" />
+      <module name="meet-summary-api" target="1.7" />
+      <module name="meet-supervise-api" target="1.7" />
+      <module name="meetcommons" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
