@@ -13,7 +13,6 @@ import java.util.Map;
 
 @Mapper
 @Repository
-@CacheNamespace(size=512)
 public interface RoleDao extends BaseMapper<Role> {
 
     List<Map<String, Object>> selectRoleList(@Param("userId") Integer userId);

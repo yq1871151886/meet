@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 @TableName("meet_role")
 @Data
-public class Role implements Serializable {
+public class Role {
     /**
      * CREATE TABLE `meet_role` (
      *   `roleId` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
