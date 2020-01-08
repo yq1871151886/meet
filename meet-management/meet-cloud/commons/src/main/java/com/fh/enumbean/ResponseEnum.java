@@ -12,7 +12,57 @@ public enum ResponseEnum {
     ,LOGIN_TOKEN_INVALID(501,"token验证失败！")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ,COMMIT_SUCCESS(2001,"提交例会成功")
     ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private Integer code;
