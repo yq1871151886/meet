@@ -1,14 +1,99 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-   <!-- <div th:replace="common::html"></div>-->
-    <link rel="import" href="common.html">
+    <title>会议管理</title>
+    <link type="text/css" href="/commons/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="commons/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/commons/ztree/css/bootstrapStyle/bootstrapStyle.css">
+    <link href="commons/datatable/DataTables-1.10.18/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/commons/jquery-3.2.1.js"></script>
+    <script src="commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="commons/ztree/js/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="commons/datatable/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="commons/datatable/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="commons/dateFormat.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default">
+</nav>
+<div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    会议管理系统
+                    <button type="button" class="btn btn-primary" onclick="deptAdd();">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>增加
+                    </button>
+                    <button type="button" class="btn btn-info" onclick="deptUpdate();">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="deleteDept();">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <ul id="rightTree" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <!--<div class="panel-heading">-->
+                <!--会议管理系统-->
+                <!--</div>-->
+                <img src="commons/agenda/image/index/u5.png">
+                <div class="panel-body" id="indexs">
+                    <iframe name="aa" width="990px" height="800px">
+
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8"></div>
+    </div>
+</div>
+
+</body>
 <script>
+    var token=sessionStorage.getItem("token");
+    $(function () {
+        $.ajaxSetup({ //发送请求前触发
+            contentType:"application/x-www-form-urlencoded;charset=utf-8",
+            complete: function (XMLHttpRequest,textStatus) {
+            },
+            beforeSend: function (xhr) { //可以设置自定义标头
+                xhr.setRequestHeader('token', token);
+            }
+        })
+
+        initZtree();
+
+    })
+    setting = {
+        view: {
+            selectedMulti: false
+        },
+
+    };
+
+    function initZtree(){
+        $.ajax({
+            type:"post",
+            url:"http://localhost:8092/right",
+            success : function(result) {
+                console.log(result.data)
+                $.fn.zTree.init($("#rightTree"), setting, result.data);
+            }
+        })
+    }
+
 
 </script>
-</body>
 </html>
