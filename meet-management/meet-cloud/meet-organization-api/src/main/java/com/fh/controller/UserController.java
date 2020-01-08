@@ -2,9 +2,7 @@ package com.fh.controller;
 
 import com.fh.enumbean.ResponseServer;
 import com.fh.service.RoleService;
-import com.fh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

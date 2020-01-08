@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="import" href="../common.html" >
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+<legend>权限模块</legend>
+</fieldset>
+
+<div style="padding: 10px; background-color: #4169E1;width: 370px;border-radius: 10px;height: 700px;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <button type="button" class="layui-btn" onclick="insertPermissions()">增加权限</button>
+                    <button type="button" class="layui-btn layui-btn-normal">修改权限</button>
+                    <button type="button" class="layui-btn layui-btn-danger">删除权限</button>
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div id="permissionsTree" class="ztree" style="height:580px "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <script type="text/javascript">
+    layui.use(['element', 'layer'], function(){
+        var element = layui.element;
+        var layer = layui.layer;
+
+        //监听折叠
+        element.on('collapse(test)', function(data){
+            layer.msg('展开状态：'+ data.show);
+        });
+    });
+
+    $(function () {
+        queryPermissions();
+    })
+
+    var permissionsTree;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+    var setting = {
+
+    };
+
+    function queryPermissions() {
+
+        $.ajax({
+            url:"http://localhost:8007/permissions",
+            type:"get",
+            success:function (result) {
+                permissionsTree = $.fn.zTree.init($("#permissionsTree"), setting, result);
+            },
+            error:function () {
+                bootbox.alert("请求超时");
+            }
+        })
+    }
+
+    function insertPermissions() {
+        var nodes = permissionsTree.getSelectedNodes();
+        if (nodes[0] == null) {
+            bootbox.alert("请选择节点之后再进行操作！");
+        }
+        alert(nodes[0].id);
+        var dialog = bootbox.dialog({
+            title: '增加页面',
+            message:$("#insertAndUpdate").html(),
+            size: 'large',
+            buttons: {
+                cancel: {
+                    label: "取消",
+                    className: 'btn-danger',
+                    callback: function(){
+                        console.log('Custom cancel clicked');
+                    }
+                },
+                ok: {
+                    label: "确认提交",
+                    className: 'btn-info',
+                    callback: function(){
+                        console.log('Custom OK clicked');
+                    }
+                }
+            }
+        });
+        $("#parentName").val(nodes[0].name);
+    }
+
+
+
+
+    </script>
+    <script type="text/html" id="insertAndUpdate">
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label" style="width: 200px">
+                    父级权限名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="parentName" readonly name="undertaker" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label" style="width: 200px">
+                    权限名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="undertaker" id="pid" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </script>
+</body>
+</html>

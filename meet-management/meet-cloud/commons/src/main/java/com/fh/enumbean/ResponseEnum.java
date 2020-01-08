@@ -20,8 +20,8 @@ public enum ResponseEnum {
 
     //杨奇宫
     ,ERROR(2001,"提交例会成功")
-
-
+    ,PERMISSIONS_ADD_SUCCESS(200,"权限增加成功")
+    ,PERMISSIONS_UPDATE_SUCCESS(200,"权限增加成功")
 
 
 
