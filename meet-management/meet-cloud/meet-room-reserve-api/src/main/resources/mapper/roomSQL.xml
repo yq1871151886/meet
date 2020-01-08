@@ -6,11 +6,8 @@
         select count(venueId) from meet_venue
     </select>
 
-
     <select id="queryRoom" resultType="com.fh.beans.Room">
-    select   venueId,venueName,roomNumber,seating,equipment,other
-    from meet_venue
-    limit #{page.start},#{page.length}
+    select * from meet_venue limit #{map.start},#{map.end}
     </select>
 
 

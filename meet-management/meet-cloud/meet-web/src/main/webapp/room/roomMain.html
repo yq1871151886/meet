@@ -12,15 +12,14 @@
 
 <script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
         <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
     </div>
 </script>
 
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">编辑</button>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">详情</button>
+    <button class="layui-btn layui-btn-sm" lay-event="isAll">删除</button>
 </script>
 
 <script>
@@ -28,26 +27,34 @@
         var table = layui.table;
         table.render({
             elem: '#test'
-            ,url:'/test/table/demo1.json'
+            ,url:'http://localhost:8005/room/queryRoom'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
                 title: '提示'
                 ,layEvent: 'LAYTABLE_TIPS'
                 ,icon: 'layui-icon-tips'
             }]
+            ,page: true //开启分页 (必要)
             ,title: '用户数据表'
             ,cols: [[
-                {type: 'checkbox', fixed: 'left'}
                 ,{field:'venueId', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-                ,{field:'venueName', title:'会议地址', width:120, edit: 'text'}
-                ,{field:'roomNumber', title:'房间号', width:80}
-                ,{field:'seating', title:'标准座位数', width:100}
-                ,{field:'equipment', title:'会议室功能', width:100}
-                ,{field:'other', title:'其它说明', width:120}
+                ,{field:'venueName', title:'会议地址', edit: 'text'}
+                ,{field:'roomNumber', title:'房间号' }
+                ,{field:'seating', title:'标准座位数' }
+                ,{field:'equipment', title:'会议室功能'}
+                ,{field:'other', title:'其它说明'}
                 ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
             ]]
-            ,page: true
+            ,request: {
+                pageName: 'pageNo', //页码的参数名称，默认：page
+                limitName: 'pageSize' //每页数据量的参数名，默认：limit
+            },
+            limits: [5, 10, 15], //显示
+            limit: 10 //每页默认显示的数量
         });
+
+
+
 
         //头工具栏事件
         table.on('toolbar(test)', function(obj){
@@ -95,7 +102,5 @@
         });
     });
 </script>
-
-
 </body>
 </html>
