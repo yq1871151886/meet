@@ -6,4 +6,6 @@ public interface RoleService {
     ResponseServer addUserRole(Integer userId, String[] roleList);
 
     ResponseServer getRoleByUserId(Integer userId);
+
+    ResponseServer addRole(String roleName);
 }

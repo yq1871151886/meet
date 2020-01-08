@@ -10,6 +10,10 @@ public enum ResponseEnum {
     // 孔 61-70
     SUCCESS(500,"成功！")
     ,LOGIN_TOKEN_INVALID(501,"token验证失败！")
+    ,LOGINNAME_AND_PWD_IS_NULL(501,"账号或密码为空")
+    ,LOGINNAME_IS_NOT_EXIST(501,"账号不存在")
+    ,LOGIN_PWD_IS_NOT_TRUE(501,"账号不存在")
+    ,PREMETER_IS_NOT_NULL(502,"参数不能为空")
 
 
 

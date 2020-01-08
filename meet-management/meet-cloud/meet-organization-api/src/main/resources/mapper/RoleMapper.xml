@@ -6,10 +6,25 @@
 
     <!--查询所有权限和默认选中的权限-->
     <select id="selectRoleList" parameterType="java.lang.Integer" resultType="java.util.Map">
-
+        SELECT roleId,roleName, if(mt.roleId = mur.roleIdq,'true','false') checked from meet_role mt
+        LEFT JOIN
+        (
+        select userId,roleId roleIdq from meet_user_role
+        <if test="userId != null and userId != ''">
+            where userId=#{userId}
+        </if>
+        ) mur
+        on mt.roleId = mur.roleIdq
     </select>
 
+    <!--为用户增加角色-->
     <insert id="saveUserRole" parameterType="java.lang.Integer">
       insert into meet_user_role(roleId,userId) VALUES(#{userId},#{valueOf})
    </insert>
+
+    <!--删除用户的拥有的角色-->
+    <delete id="deleteRoleById" parameterType="java.lang.Integer">
+        delete from meet_user_role where userId =#{userId}
+    </delete>
+
 </mapper>
