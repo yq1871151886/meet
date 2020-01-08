@@ -12,6 +12,8 @@
     <file url="file://$PROJECT_DIR$/meet-cloud/meet-room-reserve-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/meet-cloud/meet-summary-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/meet-cloud/meet-supervise-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meet-cloud/meet-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/meetweb" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

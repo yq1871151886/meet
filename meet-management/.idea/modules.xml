@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-room-reserve-api/meet-room-reserve-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-room-reserve-api/meet-room-reserve-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-summary-api/meet-summary-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-summary-api/meet-summary-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-supervise-api/meet-supervise-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-supervise-api/meet-supervise-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-web/meet-web.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-web/meet-web.iml" />
     </modules>
   </component>
 </project>
