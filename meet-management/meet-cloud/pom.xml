@@ -12,6 +12,7 @@
     <artifactId>meet-cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>meet-cloud</name>
+    <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
     <modules>
