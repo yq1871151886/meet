@@ -33,13 +33,13 @@ public class ResponseServer {
         return new ResponseServer(code,message);
     }
     public static ResponseServer success(){
-        return new ResponseServer(ResponseEnum.LOGIN_SUCCESS.getCode(),ResponseEnum.LOGIN_SUCCESS.getMessage());
+        return new ResponseServer(ResponseEnum.SUCCESS.getCode(),ResponseEnum.SUCCESS.getMessage());
     }
     public static ResponseServer success(ResponseEnum loginEnum){
         return new ResponseServer(loginEnum.getCode(),loginEnum.getMessage());
     }
     public static ResponseServer success(Object data){
-        return new ResponseServer(ResponseEnum.LOGIN_SUCCESS.getCode(),ResponseEnum.LOGIN_SUCCESS.getMessage(),data);
+        return new ResponseServer(ResponseEnum.SUCCESS.getCode(),ResponseEnum.SUCCESS.getMessage(),data);
     }
 
 

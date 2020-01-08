@@ -18,8 +18,8 @@ public enum ResponseEnum {
 
 
 
-
-
+    //杨奇宫
+    ,ERROR(2001,"提交例会成功")
 
 
 
@@ -29,42 +29,46 @@ public enum ResponseEnum {
 
 
     ,COMMIT_SUCCESS(2001,"提交例会成功")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private Integer code;
     private String message;
 
