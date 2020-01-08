@@ -29,8 +29,6 @@ public class LoginAnnotationAop {
             throw  new AuthenticateException(ResponseEnum.LOGIN_TOKEN_INVALID);
         }
 
-
-
         ResponseServer loginCode = JwtUtils.resolverToken(token);
 
         if (loginCode.getCode()!=200){

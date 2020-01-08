@@ -15,6 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
+        <module>commons</module>
         <module>meet-agenda-api</module>
         <module>meet-draft-notice-api</module>
         <module>meet-organization-api</module>

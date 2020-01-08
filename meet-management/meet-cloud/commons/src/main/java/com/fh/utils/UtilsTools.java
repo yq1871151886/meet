@@ -27,6 +27,9 @@ public class UtilsTools {
         return IdWorker.getIdStr();
     }
 
+    public static Long getSnowLongId(){
+        return IdWorker.getId();
+    }
 
 
 }
