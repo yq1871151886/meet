@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.fh.dao.MeetingAgendaDao">
+    <select id="initMeetingName" resultType="com.fh.bean.MeetingNameBean">
+		select meetingId meetingId,meetingName meetingName from meet_meetingname
+    </select>
+	<select id="initMeetingUnit" resultType="com.fh.bean.MeetingUnitBean">
+		select unitId unitId,unitName unitName from meet_unit
+    </select>
+
+    <insert id="addMeeting" parameterType="com.fh.bean.MeetingAgendaBean">
+        insert into meet_plan_topic (planId,meetingId,planTopicName,unitId,minDate,maxDate,issueStatus,note)
+                              values(#{planId},#{meetingId},#{planTopicName},#{unitId},#{minDate},#{maxDate},#{issueStatus},#{note})
+    </insert>
+</mapper>
+
+
+
+
