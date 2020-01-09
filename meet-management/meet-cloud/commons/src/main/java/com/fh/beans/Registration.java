@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @TableName("meet_meeting_registration")
 @Data
-public class Registration {
+public class Registration implements Serializable {
     @TableId(value = "regularMeetingId",type = IdType.AUTO)
     public Integer regularMeetingId; //例会id
 
@@ -18,6 +20,7 @@ public class Registration {
     public Integer meetingId; //会议类型ID
 
     @TableField("meetingTime")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date meetingTime; //会议时间
 
     @TableField("securityClassification")
@@ -36,6 +39,7 @@ public class Registration {
     public Integer notification; //是否发送通知：1 是 2否
 
     @TableField("feedbackTime")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date feedbackTime; //反馈时间
 
     @TableField("materialNote")
@@ -53,4 +57,6 @@ public class Registration {
     @TableField("userId")
     public String userId;//参加议题讨论人员,多个人员id 逗号隔开
 
+    @TableField("meetingName")
+    public String meetingName;
 }

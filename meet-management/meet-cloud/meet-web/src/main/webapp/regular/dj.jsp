@@ -31,8 +31,6 @@
                     <label class="layui-form-label">会议类型</label>
                     <div class="layui-input-block">
                         <select id="meetingId" lay-verify="required">
-                            <option value="1">市政府常务会</option>
-                            <option value="2">市长办公会</option>
                         </select>
                     </div>
                 </div>
@@ -90,11 +88,10 @@
                     <label class="layui-form-label">会议地点</label>
                     <div class="layui-input-block">
                         <select id="venueId" lay-verify="required">
-                            <option value="1">市政府5号大楼会议室</option>
-                            <option value="2">市政府北楼一会议室</option>
                         </select>
                     </div>
                 </div>
+
             </div>
 
             <%--第四行--%>
@@ -144,10 +141,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">议题名称</label>
                     <div class="layui-input-block">
-                        <select name="topicId" lay-verify="required">
-                            <option value=""></option>
-                            <option value="0">111</option>
-                            <option value="1">2222</option>
+                        <select id="topicId" lay-verify="required">
+                            <option value="1">sad</option>
                         </select>
                     </div>
                 </div>
@@ -175,7 +170,9 @@
                 </div>
         </form>
         <button type="button" onclick="addyiti()" class="layui-btn layui-btn-normal">添加议题</button>
-        <center><button type="button" class="layui-btn layui-btn-normal">保存</button></center>
+
+        <%--点击添加到数据库--%>
+        <center><button type="button" onclick="addRegular()" class="layui-btn layui-btn-normal">保存</button></center>
     </div>
 </div>
 </body>
@@ -188,6 +185,7 @@
 
         laydate.render({
             elem: '#meetingTime'
+            ,type: 'datetime'
             ,theme: '#5fd3ff'
         });
         //时间选择器
@@ -204,6 +202,44 @@
             ,theme: '#5fd3ff'
         });
     });
-
+    function addRegular() {
+        var meetingId = $("#meetingId").val();
+        var meetingTime = $("#meetingTime").val();
+        var time=$("#time").val();
+        var securityClassification = $("#securityClassification").val();
+        var venueId = $("#venueId").val();
+        var undertaker = $("[name='undertaker']").val();
+        var meetingName = $("[name='meetingName']").val();
+        var notification = $("[name='notification']:checked").val();
+        var feedbackTime = $("#feedbackTime").val();
+        var materialNote = $("[name='materialNote']").val();
+        var topicId = $("#topicId").val();
+        var reporter = $("[name='reporter']").val();
+        var userId = $("[name='userId']").val();
+        $.ajax({
+            url: 'http://localhost:8003/regular/addRegular',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                meetingName:meetingName,
+                meetingId: meetingId,
+                meetingTime: meetingTime,
+                securityClassification: securityClassification,
+                venueId: venueId,
+                undertaker: undertaker,
+                notification: notification,
+                feedbackTime: feedbackTime,
+                materialNote: materialNote,
+                topicId: topicId,
+                reporter: reporter,
+                userId: userId
+            },
+            success: function (res) {
+                if (res.code == 500) {
+                    layer.msg("保存成功");
+                }
+            }
+        })
+    }
 </script>
 </html>
