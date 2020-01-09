@@ -2,16 +2,15 @@ package com.fh.controller;
 
 import com.fh.enumbean.ResponseEnum;
 import com.fh.enumbean.ResponseServer;
-import com.fh.logaop.LogAnnotation;
+import com.fh.mailsend.MailAnnotation;
 import com.fh.service.RoleService;
-import com.fh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/role")
-@CrossOrigin(maxAge = 3600,origins ="http://localhost:8080" )
+@CrossOrigin(maxAge = 3600, origins = "http://localhost:8080")
 public class RoleController {
 
     @Autowired
@@ -25,7 +24,10 @@ public class RoleController {
      * @return
      */
     @GetMapping("/{userId}")
-    public ResponseServer getRoleByUserId(@PathVariable("userId") Integer userId) {
+    @MailAnnotation(mailNum = "894627269@qq.com")
+    public ResponseServer getRoleByUserId(
+            @PathVariable("userId") Integer userId
+        ) throws RuntimeException {
         return roleService.getRoleByUserId(userId);
     }
 
@@ -35,8 +37,11 @@ public class RoleController {
      * @return
      */
     @PutMapping("/{roleName}")
-    public ResponseServer addRole(@PathVariable("roleName") String roleName){
-        if(StringUtils.isEmpty(roleName)){
+    @MailAnnotation(mailNum = "894627269@qq.com")
+    public ResponseServer addRole(
+            @PathVariable("roleName") String roleName
+        ) throws RuntimeException {
+        if (StringUtils.isEmpty(roleName)) {
             return ResponseServer.error(ResponseEnum.PREMETER_IS_NOT_NULL);
         }
         return roleService.addRole(roleName);
