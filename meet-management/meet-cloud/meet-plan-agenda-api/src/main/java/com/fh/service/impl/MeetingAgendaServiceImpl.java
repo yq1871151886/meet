@@ -6,6 +6,7 @@ import com.fh.bean.MeetingUnitBean;
 import com.fh.dao.MeetingAgendaDao;
 import com.fh.enumbean.ResponseServer;
 import com.fh.service.IMeetingAgendaService;
+import com.fh.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,20 @@ public class MeetingAgendaServiceImpl implements IMeetingAgendaService {
     @Override
     public void addMeeting(MeetingAgendaBean meetingAgenda) {
         meetingAgendaDao.addMeeting(meetingAgenda);
+    }
+
+    @Override
+    public PageBean<MeetingAgendaBean> meetingPage(PageBean<MeetingAgendaBean> page, MeetingAgendaBean meetingAgendaBean) {
+
+        try {
+            Long count=meetingAgendaDao.meetingPageCount(meetingAgendaBean);
+            page.setRecordsFiltered(count);
+            page.setRecordsTotal(count);
+            page.setData(meetingAgendaDao.meetingPage(page,meetingAgendaBean));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return page;
     }
 }

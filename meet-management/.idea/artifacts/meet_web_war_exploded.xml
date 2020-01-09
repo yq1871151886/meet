@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="meet-web:war exploded">
-    <output-path />
+    <output-path>$PROJECT_DIR$/meet-cloud/meet-web/target/meet-web</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

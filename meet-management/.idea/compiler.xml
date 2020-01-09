@@ -22,21 +22,21 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="commons" target="1.7" />
-      <module name="meet-agenda-api" target="1.7" />
-      <module name="meet-call" target="1.7" />
-      <module name="meet-cloud" target="1.7" />
-      <module name="meet-draft-notice-api" target="1.7" />
-      <module name="meet-gateway" target="1.7" />
+      <module name="commons" target="1.8" />
+      <module name="meet-agenda-api" target="1.8" />
+      <module name="meet-call" target="1.8" />
+      <module name="meet-cloud" target="1.8" />
+      <module name="meet-draft-notice-api" target="1.8" />
+      <module name="meet-gateway" target="1.8" />
       <module name="meet-organization-api" target="1.8" />
-      <module name="meet-plan-agenda-api" target="1.7" />
-      <module name="meet-query-api" target="1.7" />
+      <module name="meet-plan-agenda-api" target="1.8" />
+      <module name="meet-query-api" target="1.8" />
       <module name="meet-regular" target="1.7" />
-      <module name="meet-regular-api" target="1.7" />
-      <module name="meet-room-reserve-api" target="1.7" />
-      <module name="meet-summary-api" target="1.7" />
-      <module name="meet-supervise-api" target="1.7" />
-      <module name="meet-web" target="1.7" />
+      <module name="meet-regular-api" target="1.8" />
+      <module name="meet-room-reserve-api" target="1.8" />
+      <module name="meet-summary-api" target="1.8" />
+      <module name="meet-supervise-api" target="1.8" />
+      <module name="meet-web" target="1.8" />
       <module name="meetcommons" target="1.7" />
     </bytecodeTargetLevel>
   </component>

@@ -2,6 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.fh.dao.MeetingAgendaDao">
+    <sql id="searcheMeeting">
+        <where>
+            <if test="meeting.issueStatus != null and meeting.issueStatus != ''">
+                and issueStatus=#{meeting.issueStatus}
+            </if>
+            <if test="meeting.planTopicName != null and meeting.planTopicName != ''">
+                and  planTopicName like concat('%',#{wbPlanRegister.planTopicName},'%')
+            </if>
+            <if test="meeting.unitId != null and meeting.unitId != ''">
+                and unitId=#{meeting.unitId}
+            </if>
+            <if test="meeting.minDate != null">
+                and minDate &gt;= #{meeting.minDate}
+            </if>
+            <if test="meeting.maxDate != null">
+                and maxDate &lt;= #{meeting.maxDate}
+            </if>
+        </where>
+    </sql>
     <select id="initMeetingName" resultType="com.fh.bean.MeetingNameBean">
 		select meetingId meetingId,meetingName meetingName from meet_meetingname
     </select>
@@ -13,6 +32,16 @@
         insert into meet_plan_topic (planId,meetingId,planTopicName,unitId,minDate,maxDate,issueStatus,note)
                               values(#{planId},#{meetingId},#{planTopicName},#{unitId},#{minDate},#{maxDate},#{issueStatus},#{note})
     </insert>
+    <select id="meetingPageCount" resultType="java.lang.Long">
+        select count(planId) from meet_plan_topic
+        <include refid="searcheMeeting"></include>
+    </select>
+    <select id="meetingPage" resultType="com.fh.bean.MeetingAgendaBean">
+        select pt.planId planId,pt.planTopicName planTopicName,ut.unitName unitName,pt.minDate minDate,pt.issueStatus issueStatus from meet_plan_topic pt
+        left join meet_unit ut on pt.unitId=ut.unitId
+        <include refid="searcheMeeting"></include>
+        limit #{page.start},#{page.length}
+    </select>
 </mapper>
 
 

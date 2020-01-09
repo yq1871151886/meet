@@ -4,6 +4,7 @@ package com.fh.controller;
 import com.fh.bean.MeetingAgendaBean;
 import com.fh.enumbean.ResponseServer;
 import com.fh.service.IMeetingAgendaService;
+import com.fh.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,10 +32,16 @@ public class MeetingAgendaController {
      * @return
      *
      */
-    @PostMapping
+    @PostMapping("addMeeting")
     public ResponseServer addMeeting(MeetingAgendaBean meetingAgenda){
         meetingAgendaService.addMeeting(meetingAgenda);
 
         return ResponseServer.success();
+    }
+
+    @PostMapping("meetingPage")
+    public PageBean<MeetingAgendaBean> meetingPage(PageBean<MeetingAgendaBean> page,MeetingAgendaBean meetingAgenda){
+
+        return meetingAgendaService.meetingPage(page,meetingAgenda);
     }
 }

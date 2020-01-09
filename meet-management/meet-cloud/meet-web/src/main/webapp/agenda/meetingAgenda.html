@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../commons/My97DatePicker/WdatePicker.js"></script>
 
 <body>
 <div style="margin-left:420px">
@@ -95,7 +95,7 @@
 
         $.ajax({
 
-            url:"http://localhost:8001/meetingAgenda",
+            url:"http://localhost:8001/meetingAgenda/addMeeting",
             type:"post",
             data:{
                 "planId":planId,
