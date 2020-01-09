@@ -1,13 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="meet-web:war exploded">
-    <output-path>$PROJECT_DIR$/meet-cloud/meet-web/target/meet-web</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>meet-web</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
+    <output-path />
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

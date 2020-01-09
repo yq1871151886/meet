@@ -20,6 +20,8 @@
         <option value="$PROJECT_DIR$/meet-cloud/meet-organization-api/pom.xml" />
         <option value="$PROJECT_DIR$/meet-cloud/commons/pom.xml" />
         <option value="$PROJECT_DIR$/meet-cloud/meet-web/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-call/pom.xml" />
+        <option value="$PROJECT_DIR$/meet-cloud/meet-gateway/pom.xml" />
       </list>
     </option>
   </component>

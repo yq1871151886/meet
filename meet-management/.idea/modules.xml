@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/commons/commons.iml" filepath="$PROJECT_DIR$/meet-cloud/commons/commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-agenda-api/meet-agenda-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-agenda-api/meet-agenda-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-call/meet-call.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-call/meet-call.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-cloud.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-draft-notice-api/meet-draft-notice-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-draft-notice-api/meet-draft-notice-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-gateway/meet-gateway.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-gateway/meet-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-organization-api/meet-organization-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-organization-api/meet-organization-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-plan-agenda-api/meet-plan-agenda-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-plan-agenda-api/meet-plan-agenda-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/meet-cloud/meet-query-api/meet-query-api.iml" filepath="$PROJECT_DIR$/meet-cloud/meet-query-api/meet-query-api.iml" />
