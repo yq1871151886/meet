@@ -1,13 +1,13 @@
 package com.fh;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MeetPlanAgendaApiApplicationTests {
+public class MeetPlanAgendaApiApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
     }
 
 }
