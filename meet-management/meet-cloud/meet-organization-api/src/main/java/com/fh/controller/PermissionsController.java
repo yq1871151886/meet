@@ -3,12 +3,16 @@ package com.fh.controller;
 import com.fh.beans.Permissions;
 import com.fh.enumbean.ResponseServer;
 import com.fh.service.PermissionsService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
+@Api(value = "权限",description = "权限")
 @RestController
 @RequestMapping("permissions")
 @CrossOrigin(maxAge = 3600,origins = "http://localhost:8080")
@@ -21,10 +25,12 @@ public class PermissionsController {
      * 权限查询
      * @return
      */
+    @ApiOperation(value = "获取权限树")
+    //@ApiImplicitParam(name = "name", value = "名称", paramType = "query", required = true, dataType = "String")
     @GetMapping
-    public List<Map<String,Object>> queryPerminssions(){
-        List<Map<String, Object>> list = permissionsService.queryPermissionsService();
-        return list;
+    public ResponseServer queryPerminssions(){
+        ResponseServer responseServer = permissionsService.queryPermissionsService();
+        return responseServer;
     }
 
     /**
@@ -32,6 +38,8 @@ public class PermissionsController {
      * @param permissions
      * @return
      */
+    @ApiOperation(value = "权限增加")
+    //@ApiImplicitParam(name = "name", value = "名称", paramType = "query", required = true, dataType = "String")
     @PutMapping
     public ResponseServer insertPermissions(Permissions permissions){
         ResponseServer responseServer = permissionsService.insertPermissions(permissions);
@@ -43,6 +51,8 @@ public class PermissionsController {
      * @param permissions
      * @return
      */
+    @ApiOperation(value = "权限修改")
+    //@ApiImplicitParam(name = "name", value = "名称", paramType = "query", required = true, dataType = "String")
     @PostMapping
     public ResponseServer updatePermissions(Permissions permissions){
         ResponseServer responseServer = permissionsService.updatePermissions(permissions);

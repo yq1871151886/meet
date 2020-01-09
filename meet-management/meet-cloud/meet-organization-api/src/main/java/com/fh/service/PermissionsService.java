@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface PermissionsService {
-    List<Map<String,Object>> queryPermissionsService();
+    ResponseServer queryPermissionsService();
     ResponseServer insertPermissions(Permissions permissions);
     ResponseServer updatePermissions(Permissions permissions);
 }

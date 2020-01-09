@@ -61,7 +61,9 @@
             url:"http://localhost:8007/permissions",
             type:"get",
             success:function (result) {
-                permissionsTree = $.fn.zTree.init($("#permissionsTree"), setting, result);
+                if (result.code == 200) {
+                    permissionsTree = $.fn.zTree.init($("#permissionsTree"), setting, result.data);
+                }
             },
             error:function () {
                 bootbox.alert("请求超时");

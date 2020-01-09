@@ -24,10 +24,11 @@ public class PermissionsServiceImpl implements PermissionsService {
      * 首先从
      * @return
      */
-    public List<Map<String,Object>> queryPermissionsService(){
+    public ResponseServer queryPermissionsService(){
         QueryWrapper<Permissions> queryWrapper = new QueryWrapper<Permissions>();
         List<Permissions> permissions = permissionsDao.selectList(queryWrapper);
-        return getPermissions(0,permissions);
+        List<Map<String, Object>> permissions1 = getPermissions(0, permissions);
+        return ResponseServer.success(permissions1);
     }
 
     @Override
