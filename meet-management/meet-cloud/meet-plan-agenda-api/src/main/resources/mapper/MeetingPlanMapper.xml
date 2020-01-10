@@ -5,19 +5,19 @@
     <sql id="searcheMeeting">
         <where>
             <if test="meeting.issueStatus != null and meeting.issueStatus != ''">
-                and issueStatus=#{meeting.issueStatus}
+                and pt.issueStatus=#{meeting.issueStatus}
             </if>
             <if test="meeting.planTopicName != null and meeting.planTopicName != ''">
-                and  planTopicName like concat('%',#{wbPlanRegister.planTopicName},'%')
+                and  pt.planTopicName like concat('%',#{meeting.planTopicName},'%')
             </if>
             <if test="meeting.unitId != null and meeting.unitId != ''">
-                and unitId=#{meeting.unitId}
+                and pt.unitId=#{meeting.unitId}
             </if>
             <if test="meeting.minDate != null">
-                and minDate &gt;= #{meeting.minDate}
+                and pt.minDate &gt;= #{meeting.minDate}
             </if>
             <if test="meeting.maxDate != null">
-                and maxDate &lt;= #{meeting.maxDate}
+                and pt.maxDate &lt;= #{meeting.maxDate}
             </if>
         </where>
     </sql>
@@ -33,7 +33,7 @@
                               values(#{planId},#{meetingId},#{planTopicName},#{unitId},#{minDate},#{maxDate},#{issueStatus},#{note})
     </insert>
     <select id="meetingPageCount" resultType="java.lang.Long">
-        select count(planId) from meet_plan_topic
+        select count(pt.planId) from meet_plan_topic pt
         <include refid="searcheMeeting"></include>
     </select>
     <select id="meetingPage" resultType="com.fh.bean.MeetingAgendaBean">

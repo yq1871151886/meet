@@ -39,7 +39,7 @@
                         <div class="col-sm-3">
                             <select class="form-control" id="issueStatus" name="issueStatus">
                                 <option value="">---请选择---</option>
-                                <option value="3">---待审核---</option>
+                                <option value="0">---待审核---</option>
                                 <option value="1">---审核通过---</option>
                                 <option value="2">---退回---</option>
                             </select>
@@ -134,11 +134,11 @@
                 {"data": "minDate", "title": "上报时间"},
                 {"data": "issueStatus", "title": "状态",render: function (data, type, row, meta) {
                         if (data == 0) {
-                            return '待上会';
+                            return '待审核';
                         } else if(data == 1){
-                            return "已上会";
+                            return "已审核";
                         }else if(data == 2){
-                            return "不上会";
+                            return "退回";
                         }
                     }
                 },
