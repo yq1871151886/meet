@@ -20,6 +20,34 @@ public class MeetingAgendaBean {
     private String note;
     private String meetingName;
     private String unitName;
+    private Integer auditStatus;
+    private Integer userId;
+    private String opinion;
+
+
+    public Integer getAuditStatus() {
+        return auditStatus;
+    }
+
+    public void setAuditStatus(Integer auditStatus) {
+        this.auditStatus = auditStatus;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
 
     public String getMeetingName() {
         return meetingName;

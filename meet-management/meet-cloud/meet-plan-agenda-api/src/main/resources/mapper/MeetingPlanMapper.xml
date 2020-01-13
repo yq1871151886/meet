@@ -4,8 +4,8 @@
 <mapper namespace="com.fh.dao.MeetingAgendaDao">
     <sql id="searcheMeeting">
         <where>
-            <if test="meeting.issueStatus != null and meeting.issueStatus != ''">
-                and pt.issueStatus=#{meeting.issueStatus}
+            <if test="meeting.auditStatus != null and meeting.auditStatus != ''">
+                and pt.auditStatus=#{meeting.auditStatus}
             </if>
             <if test="meeting.planTopicName != null and meeting.planTopicName != ''">
                 and  pt.planTopicName like concat('%',#{meeting.planTopicName},'%')
@@ -29,15 +29,15 @@
     </select>
 
     <insert id="addMeeting" parameterType="com.fh.bean.MeetingAgendaBean">
-        insert into meet_plan_topic (planId,meetingId,planTopicName,unitId,minDate,maxDate,issueStatus,note)
-                              values(#{planId},#{meetingId},#{planTopicName},#{unitId},#{minDate},#{maxDate},#{issueStatus},#{note})
+        insert into meet_plan_topic (planId,meetingId,planTopicName,unitId,minDate,maxDate,issueStatus,note,auditStatus)
+                              values(#{planId},#{meetingId},#{planTopicName},#{unitId},#{minDate},#{maxDate},#{issueStatus},#{note},#{auditStatus})
     </insert>
     <select id="meetingPageCount" resultType="java.lang.Long">
         select count(pt.planId) from meet_plan_topic pt
         <include refid="searcheMeeting"></include>
     </select>
     <select id="meetingPage" resultType="com.fh.bean.MeetingAgendaBean">
-        select pt.planId planId,pt.planTopicName planTopicName,ut.unitName unitName,pt.minDate minDate,pt.issueStatus issueStatus from meet_plan_topic pt
+        select pt.planId planId,pt.planTopicName planTopicName,ut.unitName unitName,pt.minDate minDate,pt.auditStatus auditStatus from meet_plan_topic pt
         left join meet_unit ut on pt.unitId=ut.unitId
         <include refid="searcheMeeting"></include>
         limit #{page.start},#{page.length}

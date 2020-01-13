@@ -34,12 +34,13 @@ public class MeetingAgendaServiceImpl implements IMeetingAgendaService {
         }catch (Exception e){
             e.printStackTrace();
         }
-        
         return success;
     }
 
     @Override
     public void addMeeting(MeetingAgendaBean meetingAgenda) {
+
+        meetingAgenda.setAuditStatus(0);
         meetingAgendaDao.addMeeting(meetingAgenda);
     }
 
